@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type="text/css" href="wp.css">
+  <script src="wp.js"></script>
+  <video autoplay loop muted>
+    <source src="sky5.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</head>
+<button onclick="openPage()">Try <span>Premium</span></button>
+<header>
+<nav>
+<a href="today.html">Today</a>
+<a href="hourly.html">Hourly</a>
+<a href="weekly.html">Weekly</a>
+<a href="10day.html">10-day</a>
+<a href="monthly.html">Monthly</a>
+<a href="news.html">News</a>
+</nav>
+</header>
+<body>
+<div class="transbox">
+  <img src="weather-app.png" alt="Small Image" style="width: 50px; height: 50px;">
+  <h1 id="temperature" style="font-size: 48px;"></h1>
+  <h1  id="weather" style="font-size: large;"></h1>
+  <br><br>
+  <h2 id="place"></h2>
+  <br>
+    <table>
+            <td>Description</td><td>:</td><td id="description"></td>
+        </tr>
+        <tr>
+            <td>Maximum Temperature</td><td>:</td><td id="maxTemperature"></td>
+        </tr>
+        <tr>
+            <td>Minimum Temperature</td><td>:</td><td id="minTemperature"></td>
+        </tr>
+        <tr>
+            <td>Humidity</td><td>:</td><td id="humidity"></td>
+        </tr> 
+        <tr>
+            <td>Ground Level</td><td>:</td><td id="groundLevel"></td>
+        </tr>
+        <tr>
+            <td>Sea Level</td><td>:</td><td id="seaLevel"></td>
+        </tr>
+        <tr>
+            <td>Visibility</td><td>:</td><td id="visibility"></td>
+        </tr>
+        <tr>
+            <td>Wind Speed</td><td>:</td><td id="windSpeed"></td>
+        </tr>
+        <tr>
+            <td>Wind Degree</td><td>:</td><td id="windDegree"></td>
+        </tr>
+        <tr>
+            <td>Wind Gust</td><td>:</td><td id="windGust"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

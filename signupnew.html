@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html ng-app="signupApp">
+<head>
+  <script src="angular.min.js"></script>
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 10% auto;
+      background-color: rgba(255,255,255,0.8);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position:relative;
+      z-index: 2;
+      opacity: 1;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    input[type="text"], input[type="password"], input[type="submit"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      background-color: lightblue;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    input[type="submit"]:hover {
+      background-color: rgb(42, 121, 239);
+    }
+    #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+        opacity: 0.9;
+    }
+    label {
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body ng-controller="signupCtrl">
+    <video autoplay muted loop id="myVideo">
+        <source src="rain2.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <center><h1 style="font-size: 34px;">Skyesque</h1></center>
+        <center><h2>Sign Up</h2></center>
+        <form name="signupForm" ng-submit="submitForm()" novalidate>
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" ng-model="user.fname" placeholder="First Name" required pattern="^[a-zA-Z]+$">
+
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" ng-model="user.lname" placeholder="Last Name" required pattern="^[a-zA-Z]+$">
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" ng-model="user.username" placeholder="Username" required ng-pattern="/^[a-z0-9]+$/">
+
+            <label for="mail">Email Address:</label>
+            <input type="email" id="mail" name="mail" ng-model="user.mail" placeholder="Email ID" required>
+          
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" ng-model="user.password" placeholder="Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+
+            <label for="rpassword">Re-enter Password:</label>
+            <input type="password" id="rpassword" name="rpassword" ng-model="user.rpassword" placeholder="Re-enter Password" required>
+            
+            <label for="loc">Location:</label>
+            <input type="text" id="loc" name="loc" ng-model="user.loc" placeholder="Location" required>
+            
+            <!-- Display error messages -->
+            <div ng-show="signupForm.fname.$error.required || signupForm.fname.$error.pattern">
+                <p>First Name is required and should not contain any special characters.</p>
+            </div>
+            <div ng-show="signupForm.lname.$error.required || signupForm.lname.$error.pattern">
+                <p>Last Name is required and should not contain any special characters.</p>
+            </div>
+            <div ng-show="signupForm.username.$error.required || signupForm.username.$error.pattern">
+                <p>Username is required and should contain only lowercase letters and numbers.</p>
+            </div>
+            <div ng-show="signupForm.mail.$error.required">
+                <p>Email Address is required.</p>
+            </div>
+            <div ng-show="signupForm.password.$error.required || signupForm.password.$error.pattern">
+                <p>Password is required and should be more than 8 characters including at least one uppercase letter, one lowercase letter, one number, and one special symbol.</p>
+            </div>
+            <div ng-show="signupForm.rpassword.$error.required || user.password !== user.rpassword">
+                <p>Passwords do not match.</p>
+            </div>
+
+            <!-- Submit button -->
+            <input type="submit" value="Sign Up" ng-disabled="signupForm.$invalid">
+            <a href="login.html">Back to login</a>
+        </form>
+    </div>
+
+    <script src="angular.min.js"></script>
+    <script>
+        var app = angular.module('signupApp', []);
+
+        app.controller('signupCtrl', function($scope, $window) {
+            $scope.submitForm = function() {
+                $window.location.href = 'madurai.html';
+            };
+        });
+    </script>
+</body>
+</html>
